@@ -13,10 +13,10 @@ Cетка UIKit вмещает до 10 столбцов. Она использу
 ``` html
 <div class='ui-grid'>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
 </div>
 ```
@@ -34,10 +34,10 @@ Cетка UIKit вмещает до 10 столбцов. Она использу
 ``` html
 <div class='ui-grid ui-grid_column_2'>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
 </div>
 ```
@@ -55,10 +55,10 @@ Cетка UIKit вмещает до 10 столбцов. Она использу
 ``` html
 <div class='ui-grid ui-grid_column_2 ui-grid_size_xxxl'>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
 </div>
 ```
@@ -79,10 +79,10 @@ Cетка UIKit вмещает до 10 столбцов. Она использу
 ``` html
 <div class='ui-grid ui-grid_column_2 ui-grid_direction_row-reverse'>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
 </div>
 ```
@@ -102,10 +102,10 @@ Cетка UIKit вмещает до 10 столбцов. Она использу
 ``` html
 <div class='ui-grid ui-grid_wrap_nowrap'>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
 </div>
 ```
@@ -119,18 +119,18 @@ Cетка UIKit вмещает до 10 столбцов. Она использу
 ``` html
 <div class='ui-grid ui-grid_column_2'>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
     <div class='ui-grid__item'>
         <div class='ui-grid ui-grid_column_3'>
             <div class='ui-grid__item'>
-                content
+                ...
             </div>
             <div class='ui-grid__item'>
-                content
+                ...
             </div>
             <div class='ui-grid__item'>
-                content
+                ...
             </div>
         </div>
     </div>
@@ -153,7 +153,7 @@ Cетка UIKit вмещает до 10 столбцов. Она использу
 ``` html
 <div class="ui-grid ui-grid_align_center">
     <div class="ui-grid__item">
-        content
+        ...
     </div>
 </div>
 ```
@@ -174,10 +174,10 @@ Cетка UIKit вмещает до 10 столбцов. Она использу
 ``` html
 <div class='ui-grid ui-grid_column_1 ui-grid_valign_justify'>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
 </div>
 ```
@@ -191,22 +191,22 @@ Cетка UIKit вмещает до 10 столбцов. Она использу
 ``` html
 <div class='ui-grid ui-grid_size_xxxl ui-grid_theme_divider ui-grid_column_3'>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
     <div class='ui-grid__item'>
-        content
+        ...
     </div>
 </div>
 ```

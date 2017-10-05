@@ -1,0 +1,19 @@
+{
+  "name": "@evokit/grid",
+  "version": "1.0.0",
+  "description": "Резиновый макет сетки.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evokit/grid.git"
+  },
+  "author": "doccc.dev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evokit/grid/issues"
+  },
+  "homepage": "https://github.com/evokit/grid#readme"
+}

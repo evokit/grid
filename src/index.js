@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const ELEMEMT_PROP_PREFIX = 'ek';
-
 const ELEMENT_PROP_TYPES = PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.string,
@@ -11,17 +9,17 @@ const ELEMENT_PROP_TYPES = PropTypes.oneOfType([
     PropTypes.number,
 ]);
 
-function getClassName(elementName, elementProps, componentProps) {
-    const result = [elementName];
+function getClassName(baseClassName, blockName, modList, componentProps) {
+    const result = [baseClassName];
 
-    for (const key of elementProps) {
-        const propName = `${ELEMEMT_PROP_PREFIX}-${key}`;
+    for (const key of modList) {
+        const propName = `${blockName}-${key}`;
 
         if (propName in componentProps) {
             result.push(
                 classNames(componentProps[propName])
                     .split(' ')
-                    .map((value) => `${elementName}_${key}_${value}`)
+                    .map((value) => `${result[0]}_${key}_${value}`)
             );
         }
     }
@@ -29,36 +27,38 @@ function getClassName(elementName, elementProps, componentProps) {
     return classNames(result);
 }
 
-function getPropTypes(elementProps) {
+function getPropTypes(blockName, modList) {
     const result = {};
 
-    if (Array.isArray(elementProps)) {
-        for (const key of elementProps) {
-            result[`${ELEMEMT_PROP_PREFIX}-${key}`] = ELEMENT_PROP_TYPES;
+    if (Array.isArray(modList)) {
+        for (const key of modList) {
+            result[`${blockName}-${key}`] = ELEMENT_PROP_TYPES;
         }
     }
 
     return result;
 }
 
-function createElement(tagName, elementName, elementProps) {
+function createElement(tagName, blockName, elemName, modList) {
+    const baseClassName = elemName ? `${blockName}__${elemName}` : blockName;
+
     function element(props) {
         return (
             React.createElement(tagName, {
-                className: getClassName(elementName, elementProps, props),
+                className: getClassName(baseClassName, blockName, modList, props),
             }, props.children)
         );
     }
 
-    element.displayName = elementName;
-    element.propTypes = getPropTypes(elementProps);
+    element.displayName = baseClassName;
+    element.propTypes = getPropTypes(blockName, modList);
 
     return element;
 }
 
 
-const Grid = createElement('div', 'grid', ['column', 'size', 'direction', 'align', 'valign', 'theme', 'wrap']);
-const GridItem = createElement('div', 'grid__item', ['width']);
+const Grid = createElement('div', 'grid', null, ['column', 'size', 'direction', 'align', 'valign', 'theme', 'wrap']);
+const GridItem = createElement('div', 'grid', 'item', ['width']);
 
 Grid.Item = GridItem;
 

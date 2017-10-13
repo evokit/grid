@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grid</title>
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script crossorigin src="https://unpkg.com/prop-types/prop-types.js"></script>
+        <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/classnames/2.2.5/index.js"></script>
+        <script src="./index.js"></script>
+    </head>
+    <body>
+        <div id='content'>
+            loading...
+        </div>
+        <script>
+            ReactDOM.render(
+                React.createElement(Grid, {'grid-column': [1,2,'3@xxlarge']},
+                    React.createElement(Grid.Item, {},
+                        'test'
+                    )
+                ),
+                document.getElementById('content'),
+            );
+        </script>
+    </body>
+</html>

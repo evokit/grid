@@ -1,6 +1,11 @@
 import babel from 'rollup-plugin-babel';
 import eslint from 'rollup-plugin-eslint';
 import serve from 'rollup-plugin-serve'
+import postcss from 'rollup-plugin-postcss';
+import postcssModules from 'postcss-modules';
+import cssnext from 'postcss-cssnext';
+
+const cssExportMap = {};
 
 export default {
     input: 'src/index.js',
@@ -17,7 +22,28 @@ export default {
     },
     plugins: [
         eslint(),
+        postcss({
+            plugins: [
+                cssnext(),
+                postcssModules({
+                    generateScopedName: function(selector) {
+                        return `ui-${selector}`;
+                    },
+                    getJSON: function(id, exportTokens) {
+                        cssExportMap[id] = exportTokens;
+                    },
+                })
+            ],
+            // extract: 'dist/style.css',
+            getExport: function(id) {
+                return cssExportMap[id];
+            },
+        }),
+
         babel(),
-        serve('dist'),
+        serve({ contentBase: 'dist', port: 10001 })
     ]
 };
+
+
+

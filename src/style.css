@@ -1,0 +1,29 @@
+.grid {
+    border: 1px red solid;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.grid__item {
+    color: green;
+}
+
+.grid_column_1 {
+    width: 100px;
+}
+
+.grid_column_2 {
+    width: 200px;
+
+    &\@xxlarge {
+        width: 900px;
+    }
+}
+
+.grid_column_3 {
+    width: 200px;
+
+    &\@xxlarge {
+        width: 500px;
+    }
+}

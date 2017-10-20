@@ -8,7 +8,7 @@ React = React && React.hasOwnProperty('default') ? React['default'] : React;
 PropTypes = PropTypes && PropTypes.hasOwnProperty('default') ? PropTypes['default'] : PropTypes;
 classNames = classNames && classNames.hasOwnProperty('default') ? classNames['default'] : classNames;
 
-var styles = { "grid": "ui-grid", "grid__item": "ui-grid__item", "grid_column_1": "ui-grid_column_1", "grid_column_2": "ui-grid_column_2", "grid_column_2@xxlarge": "ui-grid_column_2@xxlarge", "grid_column_3": "ui-grid_column_3", "grid_column_3@xxlarge": "ui-grid_column_3@xxlarge" };
+var styles = { "grid": "ui-grid", "grid__item": "ui-grid__item", "grid_align_left": "ui-grid_align_left", "grid_align_center": "ui-grid_align_center", "grid_align_right": "ui-grid_align_right", "grid_align_justify": "ui-grid_align_justify", "grid_valign_top": "ui-grid_valign_top", "grid_valign_middle": "ui-grid_valign_middle", "grid_valign_bottom": "ui-grid_valign_bottom", "grid_valign_baseline": "ui-grid_valign_baseline", "grid_valign_justify": "ui-grid_valign_justify", "grid_direction_row": "ui-grid_direction_row", "grid_direction_row-reverse": "ui-grid_direction_row-reverse", "grid_direction_column": "ui-grid_direction_column", "grid_direction_column-reverse": "ui-grid_direction_column-reverse", "grid_wrap_nowrap": "ui-grid_wrap_nowrap", "grid_wrap_wrap": "ui-grid_wrap_wrap", "grid_wrap_wrap-reverse": "ui-grid_wrap_wrap-reverse", "grid_size_xxs": "ui-grid_size_xxs", "grid_size_xs": "ui-grid_size_xs", "grid_size_s": "ui-grid_size_s", "grid_size_m": "ui-grid_size_m", "grid_size_l": "ui-grid_size_l", "grid_size_xl": "ui-grid_size_xl", "grid_size_xxl": "ui-grid_size_xxl", "grid_size_xxxl": "ui-grid_size_xxxl", "grid_column_1": "ui-grid_column_1", "grid_column_2": "ui-grid_column_2", "grid_column_3": "ui-grid_column_3", "grid_column_4": "ui-grid_column_4", "grid_column_5": "ui-grid_column_5", "grid_column_6": "ui-grid_column_6", "grid_column_7": "ui-grid_column_7", "grid_column_8": "ui-grid_column_8", "grid_column_9": "ui-grid_column_9", "grid_column_10": "ui-grid_column_10" };
 
 var ELEMENT_PROP_TYPES = PropTypes.oneOfType([PropTypes.array, PropTypes.string, PropTypes.object, PropTypes.number]);
 
@@ -100,6 +100,29 @@ function createElement(tagName, blockName, modList) {
 
     return element;
 }
+
+/**
+ * Usage example:
+ *
+ * class MyComponent extends React.Component {
+ *    render (
+ *        <Grid
+ *            grid-column={...}
+ *            grid-size={...}
+ *            grid-direction={...}
+ *            grid-align={...}
+ *            grid-valign={...}
+ *            grid-theme={...}
+ *            grid-wrap={...}
+ *        >
+ *            <Grid.Item>
+ *                ...your content...
+ *            </Grid.Item>
+ *        </Grid>
+ *    );
+ * }
+ *
+ * */
 
 var Grid = createElement('div', 'grid', ['column', 'size', 'direction', 'align', 'valign', 'theme', 'wrap']);
 var GridItem = createElement('div', 'grid__item', ['width']);

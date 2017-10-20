@@ -7,19 +7,40 @@
         <script crossorigin src="https://unpkg.com/prop-types/prop-types.js"></script>
         <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/classnames/2.2.5/index.js"></script>
         <script src="./index.js"></script>
+        <link href="./style.css" rel="stylesheet" type="text/css" />
     </head>
-    <body>
+    <body style="margin: 0;">
         <div id='content'>
             loading...
         </div>
         <script>
+            var grid = function(props, children) {
+                return React.createElement(Grid, props, children);
+            };
+
+            var item = function(props, children) {
+                var div = React.createElement('div', {style: {background: 'rgba(0,0,0, .1)', padding: 10, textAlign: 'center'}}, children);
+                return React.createElement(Grid.Item, props, div);
+            };
+
+            var itemList = function(args){
+                return args.map(function(val){ return item({}, args.length); })
+            }
+
             ReactDOM.render(
-                React.createElement(Grid, {'grid-column': [1,2,'3@xxlarge']},
-                    React.createElement(Grid.Item, {},
-                        'test'
-                    )
-                ),
-                document.getElementById('content'),
+                React.createElement('div', {style: {padding: 40}}, [
+                    grid({'grid-column': 10, 'grid-size': 'xxxl'}, itemList([1,2,3,4,5,6,7,8,9,10])),
+                    grid({'grid-column': 9, 'grid-size': 'xxxl'}, itemList([1,2,3,4,5,6,7,8,9])),
+                    grid({'grid-column': 8, 'grid-size': 'xxxl'}, itemList([1,2,3,4,5,6,7,8])),
+                    grid({'grid-column': 7, 'grid-size': 'xxxl'}, itemList([1,2,3,4,5,6,7])),
+                    grid({'grid-column': 6, 'grid-size': 'xxxl'}, itemList([1,2,3,4,5,6])),
+                    grid({'grid-column': 5, 'grid-size': 'xxxl'}, itemList([1,2,3,4,5])),
+                    grid({'grid-column': 4, 'grid-size': 'xxxl'}, itemList([1,2,3,4])),
+                    grid({'grid-column': 3, 'grid-size': 'xxxl'}, itemList([1,2,3])),
+                    grid({'grid-column': 2, 'grid-size': 'xxxl'}, itemList([1,2])),
+                    grid({'grid-column': 1, 'grid-size': 'xxxl'}, itemList([1])),
+                ])
+                , document.getElementById('content'),
             );
         </script>
     </body>

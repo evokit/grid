@@ -1,29 +1,131 @@
 .grid {
-    border: 1px red solid;
     display: flex;
-    box-sizing: border-box;
+    flex-wrap: wrap;
+    min-width: 0;
 }
 
 .grid__item {
-    color: green;
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
 }
 
-.grid_column_1 {
-    width: 100px;
-}
+/**
+ * Horizontal align:
+ *
+ *  - grid_valign_left
+ *  - grid_valign_center
+ *  - grid_valign_right
+ *  - grid_valign_justify
+ *
+ **/
+$grid-align-name: left, center, right, justify;
+$grid-align-value: flex-start, center, flex-end, space-between;
 
-.grid_column_2 {
-    width: 200px;
-
-    &\@xxlarge {
-        width: 900px;
+@each $name, $value in ($grid-align-name), ($grid-align-value) {
+    .grid_align_$(name) {
+        justify-content: $value;
     }
 }
 
-.grid_column_3 {
-    width: 200px;
 
-    &\@xxlarge {
-        width: 500px;
+/**
+ * Vertical align:
+ *
+ *  - grid_valign_top
+ *  - grid_valign_middle
+ *  - grid_valign_bottom
+ *  - grid_valign_baseline
+ *  - grid_valign_justify
+ *
+ **/
+$grid-valign-name: top, middle, bottom, baseline, justify;
+$grid-valign-value: flex-start, center, flex-end, baseline, space-between;
+
+@each $name, $value in ($grid-valign-name), ($grid-valign-value) {
+    .grid_valign_$(name) {
+        @if $name == 'bottom' {
+            align-content: $value;
+            align-items: $value;
+        } @else {
+            align-items: $value;
+        }
+    }
+}
+
+
+/**
+ * Direction:
+ *
+ *  - grid_direction_row
+ *  - grid_direction_row-reverse
+ *  - grid_direction_column
+ *  - grid_direction_column-reverse
+ *
+ **/
+$grid-direction-value: row, row-reverse, column, column-reverse;
+
+@each $value in ($grid-direction-value) {
+    .grid_direction_$(value) {
+        flex-direction: $value;
+    }
+}
+
+
+/**
+ * Multiple lines:
+ *
+ *  - grid_wrap_nowrap
+ *  - grid_wrap_wrap
+ *  - grid_wrap_wrap-reverse
+ *
+ **/
+$grid-wrap-value: nowrap, wrap, wrap-reverse;
+
+@each $value in ($grid-wrap-value) {
+    .grid_wrap_$(value) {
+        flex-wrap: $value;
+    }
+}
+
+
+/**
+ * Padding size:
+ *
+ *  - grid_size_(s,m,l...)
+ *
+ **/
+$grid-size-name: $grid.size.name;
+$grid-size-value: $grid.size.value;
+
+@each $name, $value in ($grid-size-name), ($grid-size-value) {
+    .grid_size_$(name) {
+        margin-top: resolve(-floor($value / 2))px;
+        margin-left: resolve(-floor($value / 2))px;
+        margin-right: resolve(-ceil($value / 2))px;
+        margin-bottom: resolve(-ceil($value / 2))px;
+    }
+
+    .grid_size_$(name) > .grid__item {
+        padding-top: resolve(floor($value / 2))px;
+        padding-left: resolve(floor($value / 2))px;
+        padding-right: resolve(ceil($value / 2))px;
+        padding-bottom: resolve(ceil($value / 2))px;
+    }
+}
+
+
+/**
+ * Column:
+ *
+ *  - grid_column_(1,2,3...)
+ *
+ **/
+$grid-column-name: $grid.column;
+
+@each $value in ($grid-column-name) {
+    .grid_column_$(value) > .grid__item {
+        flex: none;
+        width: resolve(100 / $value)%;
     }
 }

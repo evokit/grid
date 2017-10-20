@@ -59,6 +59,29 @@ function createElement(tagName, blockName, modList) {
 }
 
 
+/**
+ * Usage example:
+ *
+ * class MyComponent extends React.Component {
+ *    render (
+ *        <Grid
+ *            grid-column={...}
+ *            grid-size={...}
+ *            grid-direction={...}
+ *            grid-align={...}
+ *            grid-valign={...}
+ *            grid-theme={...}
+ *            grid-wrap={...}
+ *        >
+ *            <Grid.Item>
+ *                ...your content...
+ *            </Grid.Item>
+ *        </Grid>
+ *    );
+ * }
+ *
+ * */
+
 const Grid = createElement('div', 'grid', ['column', 'size', 'direction', 'align', 'valign', 'theme', 'wrap']);
 const GridItem = createElement('div', 'grid__item', ['width']);
 

@@ -12,8 +12,6 @@ const cssExportMap = {};
 
 
 const evokitTheme = {
-    'site-width': '960px',
-    'background': 'red',
     grid: {
         size: {
             name: ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl'],

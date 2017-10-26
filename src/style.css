@@ -90,7 +90,7 @@ $grid-wrap-value: nowrap, wrap, wrap-reverse;
 
 
 /**
- * Padding size:
+ * Column padding size:
  *
  *  - grid_size_(s,m,l...)
  *
@@ -127,5 +127,24 @@ $grid-column-name: $grid.column;
     .grid_column_$(value) > .grid__item {
         flex: none;
         width: resolve(100 / $value)%;
+    }
+}
+
+
+/**
+ * Item width:
+ *
+ *  - grid__item_width_(1-1,1-2,1-3...)
+ *
+ **/
+$grid-item-width-name: $grid.column;
+
+@each $to in ($grid-item-width-name) {
+    @each $from in ($grid-item-width-name) {
+        @if $from < $to or ($from == 1 and $to == 1) {
+            .grid__item_width_$(from)-$(to) {
+                width: resolve($from / $to * 100)%;
+            }
+        }
     }
 }

@@ -1,3 +1,28 @@
+/**
+ * Start mixins
+ **/
+$grid-media: $grid.media;
+$grid-media-name: $grid.media.name;
+$grid-media-value: $grid.media.value;
+
+@define-mixin media $selector {
+    $selector {
+        @mixin-content;
+    }
+
+    @each $name, $value in ($grid-media-name), ($grid-media-value) {
+        @media $(value) {
+            $(selector)\@$(name) {
+                @mixin-content;
+            }
+        }
+    }
+}
+/**
+ * End mixins
+ **/
+
+
 .grid {
     display: flex;
     flex-wrap: wrap;
@@ -23,7 +48,7 @@ $grid-align-name: left, center, right, justify;
 $grid-align-value: flex-start, center, flex-end, space-between;
 
 @each $name, $value in ($grid-align-name), ($grid-align-value) {
-    .grid_align_$(name) {
+    @mixin media .grid_align_$(name) {
         justify-content: $value;
     }
 }
@@ -43,7 +68,7 @@ $grid-valign-name: top, middle, bottom, baseline, justify;
 $grid-valign-value: flex-start, center, flex-end, baseline, space-between;
 
 @each $name, $value in ($grid-valign-name), ($grid-valign-value) {
-    .grid_valign_$(name) {
+    @mixin media .grid_valign_$(name) {
         @if $name == 'bottom' {
             align-content: $value;
             align-items: $value;
@@ -66,7 +91,7 @@ $grid-valign-value: flex-start, center, flex-end, baseline, space-between;
 $grid-direction-value: row, row-reverse, column, column-reverse;
 
 @each $value in ($grid-direction-value) {
-    .grid_direction_$(value) {
+    @mixin media .grid_direction_$(value) {
         flex-direction: $value;
     }
 }
@@ -83,7 +108,7 @@ $grid-direction-value: row, row-reverse, column, column-reverse;
 $grid-wrap-value: nowrap, wrap, wrap-reverse;
 
 @each $value in ($grid-wrap-value) {
-    .grid_wrap_$(value) {
+    @mixin media .grid_wrap_$(value) {
         flex-wrap: $value;
     }
 }
@@ -99,18 +124,18 @@ $grid-size-name: $grid.size.name;
 $grid-size-value: $grid.size.value;
 
 @each $name, $value in ($grid-size-name), ($grid-size-value) {
-    .grid_size_$(name) {
+    @mixin media .grid_size_$(name) {
         margin-top: resolve(-floor($value / 2))px;
         margin-left: resolve(-floor($value / 2))px;
         margin-right: resolve(-ceil($value / 2))px;
         margin-bottom: resolve(-ceil($value / 2))px;
-    }
 
-    .grid_size_$(name) > .grid__item {
-        padding-top: resolve(floor($value / 2))px;
-        padding-left: resolve(floor($value / 2))px;
-        padding-right: resolve(ceil($value / 2))px;
-        padding-bottom: resolve(ceil($value / 2))px;
+        & > .grid__item {
+            padding-top: resolve(floor($value / 2))px;
+            padding-left: resolve(floor($value / 2))px;
+            padding-right: resolve(ceil($value / 2))px;
+            padding-bottom: resolve(ceil($value / 2))px;
+        }
     }
 }
 
@@ -124,9 +149,11 @@ $grid-size-value: $grid.size.value;
 $grid-column-value: $grid.column;
 
 @each $value in ($grid-column-value) {
-    .grid_column_$(value) > .grid__item {
-        flex: none;
-        width: resolve(100 / $value)%;
+    @mixin media .grid_column_$(value) {
+        & > .grid__item {
+            flex: none;
+            width: resolve(100 / $value)%;
+        }
     }
 }
 
@@ -142,7 +169,7 @@ $grid-item-width-value: $grid.itemWidth;
 @each $to in ($grid-item-width-value) {
     @each $from in ($grid-item-width-value) {
         @if $from < $to or ($from == 1 and $to == 1) {
-            .grid__item_width_$(from)-$(to) {
+            @mixin media .grid__item_width_$(from)-$(to) {
                 width: resolve($from / $to * 100)%;
             }
         }

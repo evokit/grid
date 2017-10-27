@@ -30,7 +30,7 @@
             ReactDOM.render(
                 React.createElement('div', {style: {padding: 40}}, [
                     grid({'grid-column': 10, 'grid-size': 'xxxl'}, itemList([1,2,3,4,5,6,7,8,9,10])),
-                    grid({'grid-column': 9, 'grid-size': 'xxxl'}, itemList([1,2,3,4,5,6,7,8,9])),
+                    grid({'grid-column': [9, '10@xlarge'], 'grid-size': ['xxxl', 'xxs@xlarge']}, itemList([1,2,3,4,5,6,7,8,9])),
                     grid({'grid-column': 8, 'grid-size': 'xxxl'}, itemList([1,2,3,4,5,6,7,8])),
                     grid({'grid-column': 7, 'grid-size': 'xxxl'}, itemList([1,2,3,4,5,6,7])),
                     grid({'grid-column': 6, 'grid-size': 'xxxl'}, itemList([1,2,3,4,5,6])),
@@ -39,7 +39,7 @@
                     grid({'grid-column': 3, 'grid-size': 'xxxl'}, itemList([1,2,3])),
                     grid({'grid-column': 2, 'grid-size': 'xxxl'}, itemList([1,2])),
                     grid({'grid-column': 1, 'grid-size': 'xxxl'}, itemList([1])),
-                    grid({'grid-size': 'xxxl'}, item({ 'grid-width': '8-10' }, '8-10')),
+                    grid({'grid-size': 'xxxl'}, item({ 'grid-width': ['8-10', '2-10@xlarge'] }, '8-10')),
                 ])
                 , document.getElementById('content'),
             );

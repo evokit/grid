@@ -72,7 +72,10 @@ function createElement(tagName, blockName, modList) {
  *            grid-valign={...}
  *            grid-wrap={...}
  *        >
- *            <Grid.Item>
+ *            <Grid.Item
+ *                grid-width={...}
+ *                grid-order={...}
+ *            >
  *                ...your content...
  *            </Grid.Item>
  *        </Grid>

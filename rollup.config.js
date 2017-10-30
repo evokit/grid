@@ -3,18 +3,10 @@ import eslint from 'rollup-plugin-eslint';
 import serve from 'rollup-plugin-serve'
 import postcss from 'rollup-plugin-postcss';
 import postcssModules from 'postcss-modules';
-import postcssVariables from 'postcss-variables';
-import postcssEach from 'postcss-each';
-import postcssConditionals from 'postcss-conditionals';
-import postcssMath from 'postcss-math';
-import postcssMixins from 'postcss-mixins';
-import postcssMqpacker from 'css-mqpacker';
-import postcssNested from 'postcss-nested';
-
+import postcssEvokit from 'postcss-evokit';
 import evokitConfig from './evokit.config.js';
 
 const cssExportMap = {};
-
 
 export default {
     input: 'src/index.js',
@@ -33,13 +25,11 @@ export default {
         eslint(),
         postcss({
             plugins: [
-                postcssVariables({globals: evokitConfig}),
-                postcssEach(),
-                postcssConditionals(),
-                postcssMath(),
-                postcssMixins(),
-                postcssNested(),
-                postcssMqpacker(),
+                postcssEvokit({
+                    variables: {
+                        globals: evokitConfig
+                    }
+                }),
                 postcssModules({
                     generateScopedName: function(selector) {
                         return `ui-${selector}`;

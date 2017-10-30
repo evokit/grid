@@ -164,7 +164,7 @@ $grid-column-value: $grid.column;
  *  - grid__item_width_(1-1,1-2,1-3...)
  *
  **/
-$grid-item-width-value: $grid.itemWidth;
+$grid-item-width-value: $grid.item.width;
 
 @each $to in ($grid-item-width-value) {
     @each $from in ($grid-item-width-value) {
@@ -173,5 +173,20 @@ $grid-item-width-value: $grid.itemWidth;
                 width: resolve($from / $to * 100)%;
             }
         }
+    }
+}
+
+
+/**
+ * Item order:
+ *
+ *  - grid__item_order_(1-1,1-2,1-3...)
+ *
+ **/
+$grid-item-order-value: $grid.item.order;
+
+@each $value in ($grid-item-order-value) {
+    @mixin media .grid__item_order_$(value) {
+        order: $value;
     }
 }

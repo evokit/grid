@@ -11,38 +11,10 @@ import postcssMixins from 'postcss-mixins';
 import postcssMqpacker from 'css-mqpacker';
 import postcssNested from 'postcss-nested';
 
+import evokitConfig from './evokit.config.js';
+
 const cssExportMap = {};
 
-const evokitThemeMedia = {
-    name: [
-        'small',
-        'medium',
-        'large',
-        'xlarge',
-        'xxlarge',
-        'xxxlarge'
-    ],
-    value: [
-        'only screen and (min-width: 480px)',
-        'only screen and (min-width: 768px)',
-        'only screen and (min-width: 960px)',
-        'only screen and (min-width: 1200px)',
-        'only screen and (min-width: 1400px)',
-        'only screen and (min-width: 1600px)'
-    ]
-}
-
-const evokitTheme = {
-    grid: {
-        media: evokitThemeMedia,
-        size: {
-            name: ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-            value: [5, 10, 15, 20, 25, 30, 35, 40],
-        },
-        column: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        itemWidth: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    }
-};
 
 export default {
     input: 'src/index.js',
@@ -61,7 +33,7 @@ export default {
         eslint(),
         postcss({
             plugins: [
-                postcssVariables({globals: evokitTheme}),
+                postcssVariables({globals: evokitConfig}),
                 postcssEach(),
                 postcssConditionals(),
                 postcssMath(),

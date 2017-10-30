@@ -82,8 +82,8 @@ function createElement(tagName, blockName, modList) {
  *
  * */
 
-const Grid = createElement('div', 'grid', ['column', 'size', 'direction', 'align', 'valign', 'theme', 'wrap']);
-const GridItem = createElement('div', 'grid__item', ['width']);
+const Grid = createElement('div', 'grid', ['column', 'size', 'direction', 'align', 'valign', 'wrap']);
+const GridItem = createElement('div', 'grid__item', ['width', 'order']);
 
 Grid.Item = GridItem;
 

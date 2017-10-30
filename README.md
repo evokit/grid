@@ -300,17 +300,27 @@ import Grid from 'evokit-grid';
 
 ---
 
-## Разделитель между ячейками
+## Ширина ячейки
 
-Чтобы применить вертикальный разделитель между ячейками, добавьте класс `.grid_theme_divider`.
+Ширина ячейки определяется для элемента секти `.grid__item`.
+
+|                  Class                 |            Description                               |
+|----------------------------------------|------------------------------------------------------|
+|  `.grid__item_width-1-1`                               | Заполняет 100% доступной ширины.     |
+|  `.grid__item_width-1-2`                               | Деление на две половины, 50%.        |
+|  `.grid__item_width-1-3` до `.grid__item_width-2-3`    | Деление на три части.                |
+|  `.grid__item_width-1-4` до `.grid__item_width-3-4`    | Деление на четыре части.             |
+|  `.grid__item_width-1-5` до `.grid__item_width-4-5`    | Деление на пять частей.              |
+|  `.grid__item_width-1-6` до `.grid__item_width-5-6`    | Деление на шесть частей.             |
+|  ...                                                   | ...                                  |
+|  `.grid__item_width-1-10` до `.grid__item_width-9-10`  | Деление на десять частей.            |
+
+Например класс `.grid__item_width-5-10` будет работать точно так же как `.grid__item_width-1-2`.
 
 ### HTML
 ``` html
-<div class='grid grid_size_m grid_theme_divider grid_column_3'>
-    <div class='grid__item'>
-        ...
-    </div>
-    <div class='grid__item'>
+<div class='grid'>
+    <div class='grid__item grid__item_width-1-3'>
         ...
     </div>
 </div>
@@ -318,11 +328,44 @@ import Grid from 'evokit-grid';
 
 ### JSX
 ``` jsx
-<Grid grid-size='m' grid-theme='divider' grid-column={3}>
-    <Grid.Item>
+<Grid>
+    <Grid.Item grid-width='1-3'>
         ...
     </Grid.Item>
-    <Grid.Item>
+</Grid>
+```
+
+---
+
+## Порядок ячеек
+
+Задает порядок следования элемента сетки `.grid__item`.
+
+|                  Class                 |       Description          |
+|----------------------------------------|----------------------------|
+|  `.grid__item_order-1` до `.grid__item_order-10`  | Целое число.    |
+
+По умолчанию все элементы будут следовать друг за другом в порядке, заданном в html.
+
+### HTML
+``` html
+<div class='grid'>
+    <div class='grid__item grid__item_order-2'>
+        ...
+    </div>
+    <div class='grid__item grid__item_order-1'>
+        ...
+    </div>
+</div>
+```
+
+### JSX
+``` jsx
+<Grid>
+    <Grid.Item grid-order={2}>
+        ...
+    </Grid.Item>
+    <Grid.Item grid-order={1}>
         ...
     </Grid.Item>
 </Grid>

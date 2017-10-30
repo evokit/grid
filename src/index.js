@@ -70,7 +70,6 @@ function createElement(tagName, blockName, modList) {
  *            grid-direction={...}
  *            grid-align={...}
  *            grid-valign={...}
- *            grid-theme={...}
  *            grid-wrap={...}
  *        >
  *            <Grid.Item>

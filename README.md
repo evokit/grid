@@ -8,16 +8,13 @@ Cетка вмещает до 10 столбцов. Она использует �
 
 ## Использование
 
-Для того, чтобы создать контейнер сетки, добавить класс `.grid`  к родительскому элементу и класс `.grid__item` дочерним элементам.
+Для того, чтобы создать контейнер сетки, добавьте класс `.grid` к родительскому блоку и класс `.grid__item` дочерним элементам.
 
 ### HTML
 ``` html
-<link href="evokit/grid.css" rel="stylesheet" type="text/css" />
+<link href="evokit/grid.css" rel="stylesheet">
 
 <div class='grid'>
-    <div class='grid__item'>
-        ...
-    </div>
     <div class='grid__item'>
         ...
     </div>
@@ -28,10 +25,7 @@ Cетка вмещает до 10 столбцов. Она использует �
 ``` jsx
 import Grid from 'evokit-grid';
 
-<Grid grid-column={2}>
-    <Grid.Item>
-        ...
-    </Grid.Item>
+<Grid>
     <Grid.Item>
         ...
     </Grid.Item>
@@ -45,7 +39,6 @@ import Grid from 'evokit-grid';
 |                 Class                 |                 Description               |
 |---------------------------------------|-------------------------------------------|
 | `.grid_column_1` до `.grid_column_10` | Делит на равные колонки.                  |
-| `.grid_column_expand`                 | Каждый потомок получит одинаковый размер. |
 
 ### HTML
 ``` html
@@ -77,15 +70,20 @@ import Grid from 'evokit-grid';
 
 По умолчанию, сетка не имеет отступов.
 
-|         Class          |         Description         |
-|------------------------|-----------------------------|
-| `.grid_size_s` | 5px.  |
-| `.grid_size_m` | 15px. |
-| `.grid_size_l` | 30px. |
+|            Class          |         Description         |
+|---------------------------|-----------------------------|
+| `.grid_size_xxs`  | 5px.  |
+| `.grid_size_xs`   | 10px. |
+| `.grid_size_s`    | 15px. |
+| `.grid_size_m`    | 20px. |
+| `.grid_size_l`    | 25px. |
+| `.grid_size_xl`   | 30px. |
+| `.grid_size_xxl`  | 35px. |
+| `.grid_size_xxxl` | 40px. |
 
 ### HTML
 ``` html
-<div class='grid grid_column_2 grid_size_xxxl'>
+<div class='grid grid_size_xl'>
     <div class='grid__item'>
         ...
     </div>
@@ -97,7 +95,7 @@ import Grid from 'evokit-grid';
 
 ### JSX
 ``` jsx
-<Grid grid-column={2} grid-size='m'>
+<Grid grid-size='xl'>
     <Grid.Item>
         ...
     </Grid.Item>
@@ -111,7 +109,8 @@ import Grid from 'evokit-grid';
 
 ## Направление ячеек
 
-Устанавливает главную ось `main-axis`, определяя тем самым направление для элементов сетки. По умолчанию, слева направо.
+Устанавливает главную ось `main-axis`, определяя тем самым направление для элементов сетки.
+По умолчанию, слева направо.
 
 |         Class         |         Description         |
 |-----------------------|-----------------------------|
@@ -122,7 +121,7 @@ import Grid from 'evokit-grid';
 
 ### HTML
 ``` html
-<div class='grid grid_column_2 grid_direction_row-reverse'>
+<div class='grid grid_direction_row-reverse'>
     <div class='grid__item'>
         ...
     </div>
@@ -134,7 +133,7 @@ import Grid from 'evokit-grid';
 
 ### JSX
 ``` jsx
-<Grid grid-column={2} grid-direction='row-reverse'>
+<Grid grid-direction='row-reverse'>
     <Grid.Item>
         ...
     </Grid.Item>
@@ -238,10 +237,10 @@ import Grid from 'evokit-grid';
 
 |           Class           |          Description          |
 |---------------------------|-------------------------------|
-|  `.grid_align_left`    | Выравнивание по левому краю. |
-|  `.grid_align_right`   | Выравнивание по правому краю. |
-|  `.grid_align_center`  | Выравнивание по центру.       |
-|  `.grid_align_justify` | Выравнивание по краям.        |
+|  `.grid_align_left`       | Выравнивание по левому краю.  |
+|  `.grid_align_right`      | Выравнивание по правому краю. |
+|  `.grid_align_center`     | Выравнивание по центру.       |
+|  `.grid_align_justify`    | Выравнивание по краям.        |
 
 ### HTML
 ``` html
@@ -276,7 +275,7 @@ import Grid from 'evokit-grid';
 
 ### HTML
 ``` html
-<div class='grid grid_column_1 grid_valign_justify'>
+<div class='grid grid_valign_justify'>
     <div class='grid__item'>
         ...
     </div>
@@ -288,7 +287,7 @@ import Grid from 'evokit-grid';
 
 ### JSX
 ``` jsx
-<Grid grid-column={1} grid-valign='center'>
+<Grid grid-valign='justify'>
     <Grid.Item>
         ...
     </Grid.Item>

@@ -31,15 +31,15 @@ export default {
                     }
                 }),
                 postcssModules({
-                    generateScopedName: function(selector) {
-                        return `ui-${selector}`;
-                    },
+                    // generateScopedName: function(selector) {
+                    //     return `ui-${selector}`;
+                    // },
                     getJSON: function(id, exportTokens) {
                         cssExportMap[id] = exportTokens;
                     },
                 })
             ],
-            extract: 'dist/style.css',
+            // extract: 'dist/style.css',
             getExport: function(id) {
                 return cssExportMap[id];
             },

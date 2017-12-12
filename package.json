@@ -1,6 +1,6 @@
 {
   "name": "@evokit/grid",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Резиновый макет сетки.",
   "main": "src/index.js",
   "scripts": {
@@ -16,9 +16,6 @@
     "url": "https://github.com/evokit/grid/issues"
   },
   "homepage": "https://github.com/evokit/grid#readme",
-  "dependencies": {
-    "classnames": "^2.2.5"
-  },
   "devDependencies": {
     "@evo/eslint-config-uaprom": "^2.0.2",
     "babel-core": "^6.26.0",

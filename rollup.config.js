@@ -15,10 +15,9 @@ export default {
         format: 'umd',
         name: 'Grid',
     },
-    external: ['react', 'prop-types', 'classnames'],
+    external: ['react', 'prop-types'],
     globals: {
       react: 'React',
-      classnames: 'classNames',
       'prop-types': 'PropTypes',
     },
     plugins: [
@@ -39,7 +38,7 @@ export default {
                     },
                 })
             ],
-            // extract: 'dist/style.css',
+            extract: 'dist/style.css',
             getExport: function(id) {
                 return cssExportMap[id];
             },

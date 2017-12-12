@@ -11,8 +11,8 @@ Cетка вмещает до 10 столбцов. Она использует �
 Для того, чтобы создать контейнер сетки, добавьте класс `.grid` к родительскому блоку и класс `.grid__item` дочерним элементам.
 
 ### HTML
-``` html
-<link href="evokit/grid.css" rel="stylesheet">
+```html
+<link href="@evokit/grid/dist/style.css" rel="stylesheet">
 
 <div class='grid'>
     <div class='grid__item'>
@@ -22,7 +22,7 @@ Cетка вмещает до 10 столбцов. Она использует �
 ```
 
 ### JSX
-``` jsx
+```jsx
 import Grid from 'evokit-grid';
 
 <Grid>
@@ -41,7 +41,7 @@ import Grid from 'evokit-grid';
 | `.grid_column_1` до `.grid_column_10` | Делит на равные колонки.                  |
 
 ### HTML
-``` html
+```html
 <div class='grid grid_column_2'>
     <div class='grid__item'>
         ...
@@ -53,8 +53,8 @@ import Grid from 'evokit-grid';
 ```
 
 ### JSX
-``` jsx
-<Grid grid-column={2}>
+```jsx
+<Grid column={2}>
     <Grid.Item>
         ...
     </Grid.Item>
@@ -82,7 +82,7 @@ import Grid from 'evokit-grid';
 | `.grid_size_xxxl` | 40px. |
 
 ### HTML
-``` html
+```html
 <div class='grid grid_size_xl'>
     <div class='grid__item'>
         ...
@@ -94,8 +94,8 @@ import Grid from 'evokit-grid';
 ```
 
 ### JSX
-``` jsx
-<Grid grid-size='xl'>
+```jsx
+<Grid size='xl'>
     <Grid.Item>
         ...
     </Grid.Item>
@@ -120,7 +120,7 @@ import Grid from 'evokit-grid';
 |  `.grid_direction_column-reverse` | Aналогично **row-reverse**, снизу вверх.  |
 
 ### HTML
-``` html
+```html
 <div class='grid grid_direction_row-reverse'>
     <div class='grid__item'>
         ...
@@ -132,8 +132,8 @@ import Grid from 'evokit-grid';
 ```
 
 ### JSX
-``` jsx
-<Grid grid-direction='row-reverse'>
+```jsx
+<Grid direction='row-reverse'>
     <Grid.Item>
         ...
     </Grid.Item>
@@ -156,7 +156,7 @@ import Grid from 'evokit-grid';
 |  `.grid_wrap_wrap-reverse`  | Переносятся и располагаются в обратном порядке          |
 
 ### HTML
-``` html
+```html
 <div class='grid grid_wrap_nowrap'>
     <div class='grid__item'>
         ...
@@ -168,8 +168,8 @@ import Grid from 'evokit-grid';
 ```
 
 ### JSX
-``` jsx
-<Grid grid-wrap='nowrap'>
+```jsx
+<Grid wrap='nowrap'>
     <Grid.Item>
         ...
     </Grid.Item>
@@ -186,7 +186,7 @@ import Grid from 'evokit-grid';
 Можно легко расширить макет сетки с вложенными сетками.
 
 ### HTML
-``` html
+```html
 <div class='grid grid_column_2'>
     <div class='grid__item'>
         ...
@@ -208,13 +208,13 @@ import Grid from 'evokit-grid';
 ```
 
 ### JSX
-``` jsx
-<Grid grid-column={2}>
+```jsx
+<Grid column={2}>
     <Grid.Item>
         ...
     </Grid.Item>
     <Grid.Item>
-        <Grid grid-column={3}>
+        <Grid column={3}>
             <Grid.Item>
                 ...
             </Grid.Item>
@@ -243,7 +243,7 @@ import Grid from 'evokit-grid';
 |  `.grid_align_justify`    | Выравнивание по краям.        |
 
 ### HTML
-``` html
+```html
 <div class="grid grid_align_center">
     <div class="grid__item">
         ...
@@ -252,8 +252,8 @@ import Grid from 'evokit-grid';
 ```
 
 ### JSX
-``` jsx
-<Grid grid-align='center'>
+```jsx
+<Grid align='center'>
     <Grid.Item>
         ...
     </Grid.Item>
@@ -274,7 +274,7 @@ import Grid from 'evokit-grid';
 |  `.grid_valign_baseline` | Выравнивает базовую линию ячейки с базовой линией первой текстовой строки.   |
 
 ### HTML
-``` html
+```html
 <div class='grid grid_valign_justify'>
     <div class='grid__item'>
         ...
@@ -286,8 +286,8 @@ import Grid from 'evokit-grid';
 ```
 
 ### JSX
-``` jsx
-<Grid grid-valign='justify'>
+```jsx
+<Grid valign='justify'>
     <Grid.Item>
         ...
     </Grid.Item>
@@ -317,7 +317,7 @@ import Grid from 'evokit-grid';
 Например класс `.grid__item_width-5-10` будет работать точно так же как `.grid__item_width-1-2`.
 
 ### HTML
-``` html
+```html
 <div class='grid'>
     <div class='grid__item grid__item_width-1-3'>
         ...
@@ -326,9 +326,9 @@ import Grid from 'evokit-grid';
 ```
 
 ### JSX
-``` jsx
+```jsx
 <Grid>
-    <Grid.Item grid-width='1-3'>
+    <Grid.Item width='1-3'>
         ...
     </Grid.Item>
 </Grid>
@@ -347,7 +347,7 @@ import Grid from 'evokit-grid';
 По умолчанию все элементы будут следовать друг за другом в порядке, заданном в html.
 
 ### HTML
-``` html
+```html
 <div class='grid'>
     <div class='grid__item grid__item_order-2'>
         ...
@@ -359,12 +359,12 @@ import Grid from 'evokit-grid';
 ```
 
 ### JSX
-``` jsx
+```jsx
 <Grid>
-    <Grid.Item grid-order={2}>
+    <Grid.Item order={2}>
         ...
     </Grid.Item>
-    <Grid.Item grid-order={1}>
+    <Grid.Item order={1}>
         ...
     </Grid.Item>
 </Grid>

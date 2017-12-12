@@ -1,46 +1,19 @@
-import gridStyles from './style.css';
-import { createElement } from './utils';
-
-/**
- * Usage example:
- *
- * class MyComponent extends React.Component {
- *    render (
- *        <Grid
- *            grid-column={...}
- *            grid-size={...}
- *            grid-direction={...}
- *            grid-align={...}
- *            grid-valign={...}
- *            grid-wrap={...}
- *        >
- *            <Grid.Item
- *                grid-width={...}
- *                grid-order={...}
- *            >
- *                ...your content...
- *            </Grid.Item>
- *        </Grid>
- *    );
- * }
- *
- * */
+import styles from './style.css';
+import { createElement } from './evokit';
 
 
 const Grid = createElement({
-    tagName: 'div',
-    blockName: 'grid',
-    prefix: 'grid',
-    modifiers: ['column', 'size', 'direction', 'align', 'valign', 'wrap'],
-    styles: gridStyles,
+    name: 'grid',
+    type: 'div',
+    modList: ['column', 'size', 'direction', 'align', 'valign', 'wrap'],
+    styles,
 });
 
 const GridItem = createElement({
-    tagName: 'div',
-    blockName: 'grid__item',
-    prefix: 'grid',
-    modifiers: ['width', 'order'],
-    styles: gridStyles,
+    name: 'grid__item',
+    type: 'div',
+    modList: ['width', 'order'],
+    styles,
 });
 
 Grid.Item = GridItem;

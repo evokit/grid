@@ -1,5 +1,5 @@
 import styles from './style.css';
-import { createElement } from './evokit';
+import { createElement } from './evokit.js';
 
 
 const Grid = createElement({
